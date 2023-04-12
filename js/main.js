@@ -3,8 +3,8 @@ import dom from "./dom.js";
 
 const URL = 'https://api.escuelajs.co/api/v1/products';
 
-// Traemos el elemento products por su id
-const products = dom.$('#products');
+// // Traemos el elemento products por su id
+// const products = dom.$('#products');
 
 const datos = await data.getData(URL);
 
@@ -36,14 +36,36 @@ catList.forEach( (categorie, index) => {
     old.classList.remove('act-categorie');
 
     catActive = index;
+
+    // Obtenemos el filtro
+    let filtro = categorie.textContent;
+
+    // Filtra por Categorita
+    const filtered = filtro === 'All' ? datos : data.filtrar(datos, filtro);
+
+    dom.showCards(filtered);
   })
 } )
 
 
-datos.forEach( element => {
-  // Creamos el card con la informacion del elemento
-  const card = dom.newCard(element);
+// Filtro en el input por nombre
 
-  // Agregamos el card al elemento products
-  products.appendChild(card);
+const searchProduct = dom.$('#search-product');
+
+searchProduct.addEventListener('keyup', () => {
+  let filtro = searchProduct.value;
+
+  const filtered = filtro === '' ? datos : data.filterByName(datos, filtro); 
+
+  dom.showCards(filtered);
 })
+
+dom.showCards(datos);
+
+// datos.forEach( element => {
+//   // Creamos el card con la informacion del elemento
+//   const card = dom.newCard(element);
+
+//   // Agregamos el card al elemento products
+//   products.appendChild(card);
+// })

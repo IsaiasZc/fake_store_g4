@@ -3,6 +3,9 @@
 // traer elemento del DOM por selector CSS
 const $ = (selector) => document.querySelector(selector);
 
+// Traemos el elemento products por su id
+const products = $('#products');
+
 // Crear elemento
 const newE = tag => document.createElement(tag);
 
@@ -29,6 +32,20 @@ const newCard = (obj) => {
   return div
 }
 
+// FUncion para crear los cards en el elemento Products
+const showCards = (arr) => {
+
+  products.innerHTML = '';
+
+  arr.forEach( element => {
+    // Creamos el card con la informacion del elemento
+    const card = newCard(element);
+  
+    // Agregamos el card al elemento products
+    products.appendChild(card);
+  })
+}
+
 // Añadir las categorias al DOM
 const addCategories = (categories) => {
 
@@ -49,5 +66,6 @@ const addCategories = (categories) => {
 export default {
   addCategories,
   newCard,
+  showCards,
   $,
 }
