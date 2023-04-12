@@ -3,8 +3,11 @@
 // traer elemento del DOM por selector CSS
 const $ = (selector) => document.querySelector(selector);
 
+// Crear elemento
+const newE = tag => document.createElement(tag);
+
 const newCard = (obj) => {
-  const div = document.createElement('div');
+  const div = newE('div');
   div.className = 'card-img';
 
   // Insertar los elementos del card
@@ -26,7 +29,25 @@ const newCard = (obj) => {
   return div
 }
 
+// Añadir las categorias al DOM
+const addCategories = (categories) => {
+
+  // selecciono el elemento padre
+  const list = $('#categories');
+
+  categories.forEach( elem => {
+    const li = newE('li');
+    li.className = `pointer py-1 px-3 border border-2 rounded-3 c-vl-pink ${elem === 'All' ? 'act-categorie' : '' }`; //condiciono la clase act-categorie solo para el elemento 'All'
+
+    li.innerHTML = elem;
+
+    list.appendChild(li);
+  })
+
+}
+
 export default {
+  addCategories,
   newCard,
   $,
 }

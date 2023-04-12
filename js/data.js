@@ -7,6 +7,19 @@ const getData = async (URL) => {
     .catch(error => error);
 };
 
+const getCategories = (data) => {
+  let categories = data.map( elem => elem.category.name);
+
+  // COnvertimos a SET para obtener las categorias sin valores repetidos
+  categories = new Set(categories);
+
+  // Convertimos el SET a un Array
+  categories = ['All',...categories];
+
+  return categories
+}
+
 export default {
   getData,
+  getCategories
 }
