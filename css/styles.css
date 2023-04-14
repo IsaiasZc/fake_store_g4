@@ -1,4 +1,66 @@
 
+:root {
+  /* Colors */
+  --very-light-pink: #C7C7C7;
+  --white: #FFFFFF;
+  --text-input-field: #F7F7F7;
+  --black: #000000;
+  --hospital-green: #ACD9B2;
+  --dark: #232830;
+}
+
+/* Clases de Colores en el Texto */
+
+.c-vl-pink {
+  color: var(--very-light-pink);
+}
+
+/* Background color */
+.bg-vl-pink {
+  background-color: var(--very-light-pink);
+}
+
+.bg-ti-field {
+  background-color: var(--text-input-field);
+}
+
+/* FIN DE Clases de Colores en el Texto */
+
+.act-categorie {
+  border-color: var(--hospital-green) !important;
+  color: var(--hospital-green);
+}
+
+/* Classes de estado activo*/
+
+
+/* FIn de Classes de estado activo*/
+
 .card-img {
   max-width: 224px;
+}
+
+.card-img-modified {
+  aspect-ratio: 1 / 1;
+}
+
+.card-img-modified img {
+  object-fit: cover;
+}
+
+.categories {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.notification {
+  font-size: .6rem;
+  font-weight: bold;
+  right: 3px;
+  top: -1;
 }
