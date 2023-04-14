@@ -15,6 +15,15 @@
   color: var(--very-light-pink);
 }
 
+/* Background color */
+.bg-vl-pink {
+  background-color: var(--very-light-pink);
+}
+
+.bg-ti-field {
+  background-color: var(--text-input-field);
+}
+
 /* FIN DE Clases de Colores en el Texto */
 
 .act-categorie {
@@ -47,4 +56,11 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.notification {
+  font-size: .6rem;
+  font-weight: bold;
+  right: 3px;
+  top: -1;
 }

@@ -15,13 +15,53 @@
 </head>
 <body>
   <header>
+    <nav class="navbar px-lg-5 navbar-expand-lg bg-body-tertiary mb-5">
+      <div class="container-fluid">
 
+        <!-- AQUI VA EL MENU -->
+        <a class="d-lg-none" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> <!-- Este active el toggle -->
+          <img src="./img/icons/icon_menu.svg" alt="icon_menu">
+        </a>
+        <a class="navbar-brand" href="#"><img src="./img/logos/logo_yard_sale.svg" alt=""></a>
+
+
+        
+        <!-- AQUI TERMINA EL MENU -->
+
+        <!-- OFF CANVAS -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">CATEGORIES</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="m-0 categories flex-column flex-lg-row align-items-lg-center h-50 justify-content-evenly">
+              <li>All</li>
+              <li>nuevo</li>
+              <li>Shoes</li>
+              <li>Others</li>
+              <li>Electronics</li>
+              <li>Oscar</li>
+            </ul>
+          </div>
+        </div>
+        <!-- FIN DE OFF CANVAS -->
+
+        <div class="imagen position-relative">
+          <!-- <img src="./img/icons/icon_shopping_cart.svg" alt="shopping_cart"> -->
+          <img src="./img/icons/icon_shopping_cart_notification.svg" alt="notification">
+          <span class="notification position-absolute">3</span>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <main>
     <section class="search">
-      <input id="search-product" type="text" placeholder="Search Product">
-      <ul class="categories" id="categories">
+      <div class="container">
+        <input class="form-control bg-ti-field" id="search-product" type="text" placeholder="Search Product">
+      </div>
+      <ul class="p-4 categories overflow-x-auto d-lg-none" id="categories">
 
       </ul>
       <div>

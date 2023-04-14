@@ -26,7 +26,7 @@ const newCard = (obj) => {
     <div>
       <img src="./img/icons/bt_add_to_cart.svg" alt="add to cart">
     </div>
-  </div>
+  </div> 
   `
 
   return div
@@ -54,7 +54,7 @@ const addCategories = (categories) => {
 
   categories.forEach( elem => {
     const li = newE('li');
-    li.className = `pointer py-1 px-3 border border-2 rounded-3 c-vl-pink ${elem === 'All' ? 'act-categorie' : '' }`; //condiciono la clase act-categorie solo para el elemento 'All'
+    li.className = `text-nowrap pointer py-1 px-3 border border-2 rounded-3 c-vl-pink ${elem === 'All' ? 'act-categorie' : '' }`; //condiciono la clase act-categorie solo para el elemento 'All'
 
     li.innerHTML = elem;
 
