@@ -23,11 +23,11 @@ const newCard = (obj) => {
       <span class="fw-bold">$${obj.price},00</span>
       <span>${obj.title}</span>
     </p>
-    <div>
-      <img src="./img/icons/bt_add_to_cart.svg" alt="add to cart">
-    </div>
+    <a href="#" id="${obj.id}" onClick="console.log(this.id)">
+      <img class="click" src="./img/icons/bt_add_to_cart.svg" alt="add to cart">
+    </a>
   </div> 
-  `
+  `;
 
   return div
 }

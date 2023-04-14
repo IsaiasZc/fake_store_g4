@@ -1,7 +1,7 @@
 import data from "./data.js";
 import dom from "./dom.js";
 
-const URL = 'https://api.escuelajs.co/api/v1/products';
+const URL = "https://api.escuelajs.co/api/v1/products";
 
 // // Traemos el elemento products por su id
 // const products = dom.$('#products');
@@ -15,25 +15,23 @@ const categories = data.getCategories(datos);
 dom.addCategories(categories);
 
 // Seleccoiona la lista de categorias
-const catList = [...dom.$('#categories').children];
+const catList = [...dom.$("#categories").children];
 let catActive = 0;
 
 // Añadimos los eventos a cada elemento de categoria
-catList.forEach( (categorie, index) => {
-  
-
-  categorie.addEventListener('click', () => {
+catList.forEach((categorie, index) => {
+  categorie.addEventListener("click", () => {
     // Si existe la clase, termina la function
-    if (categorie.classList.contains('act-categorie')) return ;
+    if (categorie.classList.contains("act-categorie")) return;
 
     // Si no existe, continuamos con la funcion
-    categorie.classList.add('act-categorie');
+    categorie.classList.add("act-categorie");
 
     // Seleccionamos el nodo que tenía la clase activo
     let old = catList[catActive];
 
     // Removemos la clase activo del nodo antiguo
-    old.classList.remove('act-categorie');
+    old.classList.remove("act-categorie");
 
     catActive = index;
 
@@ -41,26 +39,37 @@ catList.forEach( (categorie, index) => {
     let filtro = categorie.textContent;
 
     // Filtra por Categorita
-    const filtered = filtro === 'All' ? datos : data.filtrar(datos, filtro);
+    const filtered = filtro === "All" ? datos : data.filtrar(datos, filtro);
 
     dom.showCards(filtered);
-  })
-} )
-
+  });
+});
 
 // Filtro en el input por nombre
 
-const searchProduct = dom.$('#search-product');
+const searchProduct = dom.$("#search-product");
 
-searchProduct.addEventListener('keyup', () => {
+searchProduct.addEventListener("keyup", () => {
   let filtro = searchProduct.value;
 
-  const filtered = filtro === '' ? datos : data.filterByName(datos, filtro); 
+  const filtered = filtro === "" ? datos : data.filterByName(datos, filtro);
 
   dom.showCards(filtered);
-})
+});
 
 dom.showCards(datos);
+
+let imagenes = document.querySelectorAll(".click");
+
+imagenes.forEach(function (imagen) {
+  imagen.addEventListener("click", function () {
+    if (imagen.src.match("./img/icons/bt_add_to_cart.svg")) {
+      imagen.src = "./img/icons/bt_added_to_cart.svg";
+    } else {
+      imagen.src = "./img/icons/bt_add_to_cart.svg";
+    }
+  });
+});
 
 // datos.forEach( element => {
 //   // Creamos el card con la informacion del elemento
